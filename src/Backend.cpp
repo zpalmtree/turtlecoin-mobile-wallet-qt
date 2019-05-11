@@ -1,4 +1,6 @@
 #include "Backend.h"
+#include <Logger/Logger.h>
+#include <QtDebug>
 
 BackEnd::BackEnd(QObject *parent) :
     QObject(parent)
@@ -8,18 +10,41 @@ BackEnd::BackEnd(QObject *parent) :
         "test.wallet",
         "dave",
         1400000,
-        "blockapi.turtlepay.io",
-        443,
+        "node.trtlpay.com",
+        80,
         true
     );
 
-    if (error != SUCCESS)
+    m_walletBackend = wallet;
+    m_syncThread = std::thread(&BackEnd::sync, this);
+
+    Logger::logger.setLogLevel(Logger::LogLevel::DEBUG);
+    Logger::logger.setLogCallback([](const auto prettyMessage, const auto, const auto, const auto){
+        qDebug() << QString::fromStdString(prettyMessage);
+    });
+}
+
+BackEnd::~BackEnd()
+{
+    m_shouldStop = true;
+
+    if (m_syncThread.joinable())
     {
-        setUserName(QString::fromStdString("Error: " + error.getErrorMessage()));
+        m_syncThread.join();
     }
-    else
+}
+
+void BackEnd::sync()
+{
+    while (!m_shouldStop)
     {
-        setUserName(QString::fromStdString(wallet->getPrimaryAddress()));
+        auto [walletBlockCount, localDaemonBlockCount, networkBlockCount] = m_walletBackend->getSyncStatus();
+        std::stringstream status;
+
+        status << "Wallet height: " << walletBlockCount << ", daemon height: " << localDaemonBlockCount << ", network height: " << networkBlockCount << std::endl;
+        setUserName(QString::fromStdString(status.str()));
+
+        std::this_thread::sleep_for(std::chrono::seconds(1));
     }
 }
 

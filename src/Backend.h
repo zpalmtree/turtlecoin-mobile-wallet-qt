@@ -12,6 +12,7 @@ class BackEnd : public QObject
 
 public:
     explicit BackEnd(QObject *parent = nullptr);
+    ~BackEnd();
 
     QString userName();
     void setUserName(const QString &userName);
@@ -22,4 +23,8 @@ signals:
 private:
     QString m_userName;
     std::shared_ptr<WalletBackend> m_walletBackend;
+    std::thread m_syncThread;
+    std::atomic<bool> m_shouldStop = false;
+
+    void sync();
 };
