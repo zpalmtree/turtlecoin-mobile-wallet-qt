@@ -1,0 +1,3 @@
+[submodule "src/turtlecoin-wallet-backend-cpp"]
+	path = src/turtlecoin-wallet-backend-cpp
+	url = git@github.com:zpalmtree/turtlecoin-wallet-backend-cpp.git

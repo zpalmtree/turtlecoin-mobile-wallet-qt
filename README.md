@@ -8,6 +8,8 @@ It has been included in the source tree because qtcreator is hard to use...
 
 ### Setup
 
+Start by pulling down the submodule code. `git submodule init`
+
 * First you need to install qtcreator. I suggest you *do not* install from your distro repos - Mine were missing some android components.
 * Instead, install directly from their site - https://www.qt.io/download-qt-installer
 * I can't remember if there's any options to select.. I think I chose the default.
