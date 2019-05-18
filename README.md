@@ -18,8 +18,13 @@ I'm afraid it is a very poor guide and leaves a lot out. I do not recall how I g
 
 Once qtcreator is setup, we need to import the project into qtcreator.
 
-* Double click the [src/TonChan.pro] file, or run `qrcreator src/TonChan.pro`
+* Double click the [src/TonChan.pro](src/TonChan.pro) file, or run `qrcreator src/TonChan.pro`
 * It will ask you what build targets you want to support
 * Choose the android ones.
-* Hit the build button.
-* It should launch an android emulator, and open the app.
+* Open android studio (May need to install it)
+* Create an android emulator (Don't need to launch it)
+* Return to qtcreator
+* Click the run button
+* Choose x86, release (debug if developing?)
+* Choose the android emulator you created previously
+* It should open the android emulator, and open the app.
