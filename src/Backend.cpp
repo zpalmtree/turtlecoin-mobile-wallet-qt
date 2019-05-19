@@ -9,7 +9,7 @@ BackEnd::BackEnd(QObject *parent) :
         "olive cage nitrogen orchid vampire antics together lurk doing eggs lordship hazard sighting tepid icon bamboo abbey wipeout brunt onboard bulb tender zigzags adapt tender",
         "test.wallet",
         "dave",
-        1400000,
+        0,
         "node.trtlpay.com",
         80,
         true
