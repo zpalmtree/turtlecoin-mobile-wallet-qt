@@ -32,3 +32,7 @@ Once qtcreator is setup, we need to import the project into qtcreator.
 * Choose x86, release (debug if developing?)
 * Choose the android emulator you created previously
 * It should open the android emulator, and open the app.
+
+## Developing
+
+* Update submodules to latest code: `git submodule foreach git pull origin master`
