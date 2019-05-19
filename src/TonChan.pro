@@ -79,9 +79,6 @@ SOURCES += \
         turtlecoin-wallet-backend-cpp/src/crypto/keccak.c \
         turtlecoin-wallet-backend-cpp/src/crypto/oaes_lib.c \
         turtlecoin-wallet-backend-cpp/src/crypto/skein.c \
-        turtlecoin-wallet-backend-cpp/src/crypto/slow-hash-arm.c \
-        turtlecoin-wallet-backend-cpp/src/crypto/slow-hash-portable.c \
-        turtlecoin-wallet-backend-cpp/src/crypto/slow-hash-x86.c \
         turtlecoin-wallet-backend-cpp/src/crypto/tree-hash.c \
 
 RESOURCES += qml.qrc
@@ -231,5 +228,4 @@ HEADERS += \
     turtlecoin-wallet-backend-cpp/src/crypto/random.h \
     turtlecoin-wallet-backend-cpp/src/crypto/skein.h \
     turtlecoin-wallet-backend-cpp/src/crypto/skein_port.h \
-    turtlecoin-wallet-backend-cpp/src/crypto/slow-hash-common.h \
     turtlecoin-wallet-backend-cpp/src/crypto/variant2_int_sqrt.h \
